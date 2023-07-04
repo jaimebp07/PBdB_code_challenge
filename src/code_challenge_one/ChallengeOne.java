@@ -5,7 +5,7 @@ public class ChallengeOne {
 
 	private static final int S = 6;
 	public ChallengeOne() {
-		//int[] initialArray =  {1, 2, 3, 4, 5, 6};
+//		int[] initialArray =  {1, 2, 3, 4, 5, 6};
 //		int[] initialArray =  {10, 20, 30, 40};
 //		int[] initialArray =  {6};
 //		int[] initialArray =  {66};
@@ -14,6 +14,7 @@ public class ChallengeOne {
 		int[] initialArray =  {60, 6, 5, 66, 4, 3, 2, 7, 7, 29, 1};
 		showArray("Array inicial: ", initialArray);
 		int[] arrayPositionChange = changePosition(initialArray);
+		showArray("arrayPositionChange: ", arrayPositionChange);
 		int[] arrayRemoveNumberEquals = removeNumberEquals(arrayPositionChange);
 		int[] arrayRemoveAllsEquals = removeAllsEquals(arrayRemoveNumberEquals);
 		int[] arrayRemoveSomeDigitEquals = removeSomeDigitEquals(arrayRemoveAllsEquals);
@@ -27,17 +28,16 @@ public class ChallengeOne {
 	 * @return
 	 */
 	private int[] changePosition(int[] initialArray) {
-		int ultimatePositionArray = initialArray.length -1;
+		int lastPositionArray = initialArray.length -1;
 		int[] newArray = new int[initialArray.length];
 		for (int i = 0; i < initialArray.length; i++) {
-			 newArray[i] = initialArray[ultimatePositionArray - i];
-			 newArray[ultimatePositionArray-i] = initialArray[i];
+			 newArray[i] = initialArray[lastPositionArray - i];
+			 newArray[lastPositionArray-i] = initialArray[i];
 		}
 		return newArray;
 	}
 
 	/**
-	 * 
 	 * @param arrayRemoveAllsEquals
 	 * @return
 	 */
@@ -129,10 +129,11 @@ public class ChallengeOne {
 	}
 
 	/**
-	 * removes the integers equal to S from the array
+	 * Elimina los enteros iguales o mayores  a "S" y que son de un solo digito, 
+	 * y los restantes los agrega a un  nuevo arreglo
 	 * @param initialArray
 	 * @return
-	 */
+	 */ 
 	private int[] removeNumberEquals(int[] initialArray) {
 		int countNumberEquals = identifyNumberEquals(initialArray);
 		int[] newArray = new int[initialArray.length - countNumberEquals];
@@ -147,7 +148,11 @@ public class ChallengeOne {
 		return newArray;
 	}
 
-
+/**
+ * Verifica que el numero tenga un solo digito
+ * @param number
+ * @return
+ */
 	private boolean isOneDigit(int number) {
 		String numberString = String.valueOf(number);
 		if(numberString.length() == 1) {
@@ -156,6 +161,11 @@ public class ChallengeOne {
 		return false;
 	}
 
+	/**
+	 * Retorna la cantidad de numeros que son iguales o mayores de un solo digito 
+	 * @param initialArray
+	 * @return
+	 */
 	private int identifyNumberEquals(int[] initialArray) {
 		int countNumberEquals = 0;
 		for (int i = 0; i < initialArray.length; i++) {

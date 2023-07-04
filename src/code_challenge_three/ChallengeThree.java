@@ -6,9 +6,10 @@ public class ChallengeThree {
 		//		int[] initialArray =  {5, 7, 1, 1, 2, 3, 22};
 		//		int[] initialArray = { 1, 5, 1, 1, 1, 10, 15, 20, 100 };
 		//		int[] initialArray = {1, 1, 1, 1, 1};
-		int[] initialArray = {1, 3, 3, 6, 7};
+//		int[] initialArray = {1, 3, 3, 6, 7};
 		//		int[] initialArray = { 3, 2, 5, 6, 7 };
-
+		int[] initialArray = {1, 2, 3, 8};
+		
 		int[] arraySureOrder = makeSureOrder(initialArray);
 		showArray("ordenado", arraySureOrder);
 
@@ -17,8 +18,8 @@ public class ChallengeThree {
 	}
 
 	/**
-	 * The method takes care of parsing an array and finding the smallest change 
-	 * that is impossible to return, it only works with an array sorted ascending.
+	 * El método se encarga de analizar una matriz y encontrar el cambio más pequeño que es 
+	 * imposible de devolver, solo funciona con una matriz ordenada de forma ascendente.
 	 * @param arraySureOrder
 	 * @return
 	 */
